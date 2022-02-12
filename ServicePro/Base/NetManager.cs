@@ -8,5 +8,19 @@ namespace ServicePro.Base
 {
     class NetManager
     {
+        private string _; 
+
+        public void Init()
+        {
+
+        }
+        public void Start()
+        {
+            while (true)
+            {
+
+
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServicePro.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,7 @@ namespace ServicePro
 {
     class Program
     {
+        /*
         // 服务端程序
         public static void Main(string[] args)
         {
@@ -47,6 +49,15 @@ namespace ServicePro
                 // 连接Socket发送数据到客户端
                 connfd.Send(sendBytes);
             }
+        }
+        */
+        public static void Main(string[] args)
+        {
+            NetManager netManager = new NetManager();
+            netManager.Init();
+            
+
+            netManager.Start();
         }
     }
 }
