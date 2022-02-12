@@ -1,0 +1,6 @@
+E:\GraduationProject\Service\project\ServicePro\ServicePro\bin\Debug\ServicePro.exe.config
+E:\GraduationProject\Service\project\ServicePro\ServicePro\bin\Debug\ServicePro.exe
+E:\GraduationProject\Service\project\ServicePro\ServicePro\bin\Debug\ServicePro.pdb
+E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.csprojAssemblyReference.cache
+E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.exe
+E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.pdb
