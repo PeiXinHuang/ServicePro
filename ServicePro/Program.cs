@@ -17,7 +17,7 @@ namespace ServicePro
             Socket listenfd = new Socket(AddressFamily.InterNetwork,
                                          SocketType.Stream, ProtocolType.Tcp);
             // 监听Socket绑定地址和端口
-            IPAddress ipAdr = IPAddress.Parse("127.0.0.1");
+            IPAddress ipAdr = IPAddress.Parse("192.168.220.1");
             IPEndPoint ipEp = new IPEndPoint(ipAdr, 8888);
             listenfd.Bind(ipEp);
 
