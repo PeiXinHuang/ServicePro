@@ -4,3 +4,10 @@ E:\GraduationProject\Service\project\ServicePro\ServicePro\bin\Debug\ServicePro.
 E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.csprojAssemblyReference.cache
 E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.exe
 E:\GraduationProject\Service\project\ServicePro\ServicePro\obj\Debug\ServicePro.pdb
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\ServicePro.exe.config
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\ServicePro.exe
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\ServicePro.pdb
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\obj\Debug\ServicePro.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\obj\Debug\ServicePro.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\obj\Debug\ServicePro.exe
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\obj\Debug\ServicePro.pdb

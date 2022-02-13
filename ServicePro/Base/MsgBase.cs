@@ -20,7 +20,8 @@ namespace ServicePro.Base
 		public static MsgBase Decode(string protoName, byte[] bytes, int offset, int count)
 		{
 			string s = System.Text.Encoding.UTF8.GetString(bytes, offset, count);
-			MsgBase msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(protoName));
+			MsgBase msgBase = new MsgBase();
+			msgBase = (MsgBase)(Js.Deserialize<MsgPing>(s));
 			return msgBase;
 		}
 
