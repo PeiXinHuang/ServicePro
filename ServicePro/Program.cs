@@ -55,8 +55,6 @@ namespace ServicePro
         {
             NetManager netManager = new NetManager();
             netManager.Init();
-            
-
             netManager.Start();
         }
     }
