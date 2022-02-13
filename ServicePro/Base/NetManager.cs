@@ -15,6 +15,9 @@ namespace ServicePro.Base
         private static string _ipAddress = "172.24.151.27";
 		private static int _port = 22;
 
+		//ping间隔
+		public static long pingInterval = 30;
+
 		public static Socket listenSocket;
 		public static Dictionary<Socket, ClientState> clientStates = new Dictionary<Socket, ClientState>();
 		public static List<Socket> selectSockets = new List<Socket>();

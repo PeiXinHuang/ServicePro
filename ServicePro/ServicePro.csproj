@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Base\ByteArray.cs" />
     <Compile Include="Base\ClientState.cs" />
+    <Compile Include="Base\EventHandler.cs" />
     <Compile Include="Base\MsgBase.cs" />
     <Compile Include="Base\NetManager.cs" />
     <Compile Include="Base\SysMsg.cs" />
