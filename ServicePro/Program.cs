@@ -53,9 +53,7 @@ namespace ServicePro
         */
         public static void Main(string[] args)
         {
-            NetManager netManager = new NetManager();
-            netManager.Init();
-            netManager.Start();
+            NetManager.StartLoop();
         }
     }
 }
