@@ -44,9 +44,5 @@ namespace ServicePro.Base.Net
 				}
 			}
 		}
-
-
 	}
-
-
 }
