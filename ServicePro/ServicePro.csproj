@@ -44,8 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Net\LoginMsgHandler.cs" />
-    <Compile Include="App\Net\MsgRegister.cs" />
     <Compile Include="Base\Net\ByteArray.cs" />
     <Compile Include="Base\Net\ClientState.cs" />
     <Compile Include="Base\Net\EventHandler.cs" />
@@ -60,6 +58,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App\Net\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
