@@ -178,6 +178,7 @@ namespace ServicePro.Base.Net
 			readBuff.CheckAndMoveBytes();
 			//分发消息
 			MethodInfo mi = typeof(MsgHandler).GetMethod(protoName);
+			
 			object[] o = { state, msgBase };
 			Console.WriteLine("[NetManager]Receive " + protoName);
 			if (mi != null)

@@ -47,6 +47,8 @@
     <Compile Include="Base\Net\ByteArray.cs" />
     <Compile Include="Base\Net\ClientState.cs" />
     <Compile Include="Base\Net\EventHandler.cs" />
+    <Compile Include="Base\Net\LoginMsg.cs" />
+    <Compile Include="Base\Net\LoginMsgHandle.cs" />
     <Compile Include="Base\Net\MsgBase.cs" />
     <Compile Include="Base\Net\NetManager.cs" />
     <Compile Include="Base\Net\SysMsg.cs" />

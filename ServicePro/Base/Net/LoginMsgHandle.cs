@@ -9,6 +9,7 @@ namespace ServicePro.Base.Net
 	public partial class MsgHandler
 	{
 		//注册协议处理
+
 		public static void MsgRegister(ClientState c, MsgBase msgBase)
 		{
 			MsgRegister msg = (MsgRegister)msgBase;
