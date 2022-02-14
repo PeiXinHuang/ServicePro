@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base
+namespace ServicePro.Base.Net
 {
     class NetManager
     {

@@ -1,4 +1,4 @@
-﻿using ServicePro.Base;
+﻿using ServicePro.Base.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;

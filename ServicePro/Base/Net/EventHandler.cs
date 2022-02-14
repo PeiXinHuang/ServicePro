@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base
+namespace ServicePro.Base.Net
 {
 
 	public partial class EventHandler

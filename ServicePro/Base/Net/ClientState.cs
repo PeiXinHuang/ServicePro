@@ -1,6 +1,6 @@
 ﻿using System.Net.Sockets;
 
-namespace ServicePro.Base
+namespace ServicePro.Base.Net
 {
     //客户端状态
     public class ClientState

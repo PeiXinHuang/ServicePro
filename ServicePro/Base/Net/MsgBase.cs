@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Script.Serialization;
-namespace ServicePro.Base
+namespace ServicePro.Base.Net
 {
     public class MsgBase
     {

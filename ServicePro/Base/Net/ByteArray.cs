@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ServicePro.Base
+namespace ServicePro.Base.Net
 {
 	public class ByteArray
 	{
