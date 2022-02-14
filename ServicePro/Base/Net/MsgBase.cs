@@ -21,7 +21,7 @@ namespace ServicePro.Base.Net
 		{
 			string s = System.Text.Encoding.UTF8.GetString(bytes, offset, count);
 			MsgBase msgBase = new MsgBase();
-			msgBase = (MsgBase)(Js.Deserialize<MsgPing>(s));
+			msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(protoName));
 			return msgBase;
 		}
 

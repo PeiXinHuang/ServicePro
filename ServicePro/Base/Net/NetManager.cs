@@ -86,7 +86,7 @@ namespace ServicePro.Base.Net
 			try
 			{
 				Socket clientfd = listenfd.Accept();
-				Console.WriteLine("服务端接收到客户端" + clientfd.RemoteEndPoint.ToString());
+				Console.WriteLine("[NetManager]服务端接收到客户端" + clientfd.RemoteEndPoint.ToString());
 				ClientState state = new ClientState();
 				state.socket = clientfd;
 				state.lastPingTime = GetTimeStamp();
@@ -179,14 +179,14 @@ namespace ServicePro.Base.Net
 			//分发消息
 			MethodInfo mi = typeof(MsgHandler).GetMethod(protoName);
 			object[] o = { state, msgBase };
-			Console.WriteLine("Receive " + protoName);
+			Console.WriteLine("[NetManager]Receive " + protoName);
 			if (mi != null)
 			{
 				mi.Invoke(null, o);
 			}
 			else
 			{
-				Console.WriteLine("OnReceiveData Invoke fail " + protoName);
+				Console.WriteLine("[NetManager]OnReceiveData Invoke fail " + protoName);
 			}
 			//继续读取消息
 			if (readBuff.length > 2)
