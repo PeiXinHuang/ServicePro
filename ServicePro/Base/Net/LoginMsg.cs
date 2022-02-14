@@ -1,11 +1,10 @@
-﻿using ServicePro.Base.Net;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.App.Net
+namespace ServicePro.Base.Net
 {
 	//注册
 	public class MsgRegister : MsgBase
@@ -38,4 +37,5 @@ namespace ServicePro.App.Net
 		//原因（0-其他人登陆同一账号）
 		public int reason = 0;
 	}
+
 }
