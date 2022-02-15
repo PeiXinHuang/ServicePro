@@ -19,11 +19,19 @@ namespace ServicePro.Base.Net
 		//解码
 		public static MsgBase Decode(string protoName, byte[] bytes, int offset, int count)
 		{
+			MsgBase msgBase = null;
 
-			string s = System.Text.Encoding.UTF8.GetString(bytes, offset, count);
-			MsgBase msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(new MsgBase().GetType().Namespace + "." + protoName, true, true));
-			
-			//msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(protoName));
+			try
+            {
+				string s = System.Text.Encoding.UTF8.GetString(bytes, offset, count);
+				msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(new MsgBase().GetType().Namespace + "." + protoName, true, true));
+				//msgBase = (MsgBase)Js.Deserialize(s, Type.GetType(protoName));
+			}
+			catch (Exception ex)
+            {
+
+				Console.WriteLine("[MsgBase] decode fail " + ex.ToString());
+            }
 			return msgBase;
 		}
 
