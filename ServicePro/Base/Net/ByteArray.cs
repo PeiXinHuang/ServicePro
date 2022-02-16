@@ -97,10 +97,20 @@ namespace ServicePro.Base.Net
 		public Int16 ReadInt16()
 		{
 			if (length < 2) return 0;
-			Int16 ret = BitConverter.ToInt16(bytes, readIdx);
-			readIdx += 2;
-			CheckAndMoveBytes();
-			return ret;
+            try
+            {
+				Int16 ret = BitConverter.ToInt16(bytes, readIdx);
+				readIdx += 2;
+				CheckAndMoveBytes();
+				return ret;
+			}
+            catch (Exception ex)
+            {
+				Console.WriteLine("[ByteArray] ReadInt16 Fail " + ex.ToString());
+				return 0; 
+            }
+			
+			
 		}
 
 		//读取Int32

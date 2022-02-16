@@ -1,4 +1,5 @@
-﻿using ServicePro.Base.Net;
+﻿using ServicePro.Base.Db;
+using ServicePro.Base.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace ServicePro
     {
         public static void Main(string[] args)
         {
+            DbManager dbManager = new DbManager();
+            dbManager.InitDatabaseMgr();
+
             NetManager.StartLoop();
         }
     }
