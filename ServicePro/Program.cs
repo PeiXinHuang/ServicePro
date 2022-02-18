@@ -14,10 +14,11 @@ namespace ServicePro
     {
         public static void Main(string[] args)
         {
-            DbManager dbManager = new DbManager();
-            dbManager.InitDatabaseMgr();
-
-            NetManager.StartLoop();
+            bool result = DbManager.instance.InitDatabaseMgr();
+            if(result)
+            {
+                NetManager.StartLoop();
+            }
         }
     }
 }

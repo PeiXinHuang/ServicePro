@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ServicePro.App.Db;
+using ServicePro.App.Module.AdminUser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,5 +77,29 @@ namespace ServicePro.Base.Net
 			NetManager.Send(c, msg);
 			//player.Send(msg);
 		}
+
+
+		public static void MsgAdminLogin(ClientState c, MsgBase msgBase)
+        {
+			MsgAdminLogin msg = (MsgAdminLogin)msgBase;
+			Console.WriteLine("管理员账号登陆：" + msg.username + msg.password);
+
+			AdminUserDbMgr mgr = new AdminUserDbMgr();
+			AdminUser admin = mgr.GetAdminUserByUsername(msg.username);
+			if(admin == null)
+            {
+				msg.result = 1;
+				
+            }
+            else
+            {
+				msg.username = admin.username;
+				msg.password = admin.password;
+				Console.WriteLine("数据库中获取到数据" + msg.username + msg.password);
+				msg.result = 0;
+			}
+
+			NetManager.Send(c, msg);
+        }
 	}
 }

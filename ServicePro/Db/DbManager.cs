@@ -18,6 +18,19 @@ namespace ServicePro.Base.Db
 
         public static MySqlConnection conn; //数据库连接对象
 
+        private static DbManager _instance = null;
+        public static DbManager instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new DbManager();
+                }
+                return _instance;
+            }
+        }
+
         /// <summary>
         /// 初始化数据库控制器
         /// </summary>
@@ -32,24 +45,20 @@ namespace ServicePro.Base.Db
                 "Port = " + port + ";" +
                 "CharSet = " + charSet + ";"
                 );
-            bool result = ConnectDatabase();
+            bool result = TestConnectDatabase();
             return result;
         }
 
-        public bool ConnectDatabase()
+        public bool TestConnectDatabase()
         {
         
             bool result = true ;
             try
             {
                 conn.Open(); //打开数据库select * from texttable;
-                Console.WriteLine("数据库连接成功");
-                
-                //_errorText.text = "数据库连接成功";
             }
             catch (System.Exception e)
             {
-                //_errorText.text = e.Message.ToString(); //连接数据库失败，打印失败原因
                 Console.WriteLine("数据库连接失败" + e.Message.ToString());
                 result = false;
             }

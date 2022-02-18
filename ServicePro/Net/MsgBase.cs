@@ -61,17 +61,24 @@ namespace ServicePro.Base.Net
 			{
 				return "";
 			}
-			//读取长度
-			Int16 len = (Int16)((bytes[offset + 1] << 8) | bytes[offset]);
-			//长度必须足够
-			if (offset + 2 + len > bytes.Length)
-			{
-				return "";
+            //读取长度
+            try
+            {
+				Int16 len = (Int16)((bytes[offset + 1] << 8) | bytes[offset]);
+				if (offset + 2 + len > bytes.Length)
+				{
+					return "";
+				}
+				//解析
+				count = 2 + len;
+				string name = System.Text.Encoding.UTF8.GetString(bytes, offset + 2, len);
+ 				return name;
 			}
-			//解析
-			count = 2 + len;
-			string name = System.Text.Encoding.UTF8.GetString(bytes, offset + 2, len);
-			return name;
+            catch (Exception ex)
+            {
+				Console.WriteLine("[MsgBase] decode poton name fail cause by " + ex.ToString());
+                return "";
+            }
 		}
 	}
 }

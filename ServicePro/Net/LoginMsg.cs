@@ -38,4 +38,12 @@ namespace ServicePro.Base.Net
 		public int reason = 0;
 	}
 
+	public class MsgAdminLogin : MsgBase
+    {
+		public MsgAdminLogin() { protoName = "MsgAdminLogin"; }
+		public string username;
+		public string password;
+		public int result = 0;
+    }
+
 }

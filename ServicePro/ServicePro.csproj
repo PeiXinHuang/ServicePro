@@ -67,16 +67,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Db\DbManager.cs" />
-    <Compile Include="Base\Net\ByteArray.cs" />
-    <Compile Include="Base\Net\ClientState.cs" />
-    <Compile Include="Base\Net\EventHandler.cs" />
-    <Compile Include="Base\Net\LoginMsg.cs" />
-    <Compile Include="Base\Net\LoginMsgHandle.cs" />
-    <Compile Include="Base\Net\MsgBase.cs" />
-    <Compile Include="Base\Net\NetManager.cs" />
-    <Compile Include="Base\Net\SysMsg.cs" />
-    <Compile Include="Base\Net\SysMsgHandler.cs" />
+    <Compile Include="Module\AdminUser\AdminUserDbMgr.cs" />
+    <Compile Include="Module\AdminUser\AdminUser.cs" />
+    <Compile Include="Db\DbManager.cs" />
+    <Compile Include="Module\User\User.cs" />
+    <Compile Include="Net\AdminUserDb.cs" />
+    <Compile Include="Net\ByteArray.cs" />
+    <Compile Include="Net\ClientState.cs" />
+    <Compile Include="Net\EventHandler.cs" />
+    <Compile Include="Net\LoginMsg.cs" />
+    <Compile Include="Net\LoginMsgHandle.cs" />
+    <Compile Include="Net\MsgBase.cs" />
+    <Compile Include="Net\NetManager.cs" />
+    <Compile Include="Net\SysMsg.cs" />
+    <Compile Include="Net\SysMsgHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\JsonUtil.cs" />
@@ -85,8 +89,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App\Module\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
