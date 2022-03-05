@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base.Db
+namespace ServicePro.Db
 {
     class DbManager
     {

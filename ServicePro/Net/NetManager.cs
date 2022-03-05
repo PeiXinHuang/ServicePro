@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base.Net
+namespace ServicePro.Net
 {
     class NetManager
     {
@@ -199,6 +199,7 @@ namespace ServicePro.Base.Net
 		//发送
 		public static void Send(ClientState cs, MsgBase msg)
 		{
+			Console.WriteLine(msg.protoName);
 			//状态判断
 			if (cs == null)
 			{

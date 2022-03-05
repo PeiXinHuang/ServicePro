@@ -26,3 +26,5 @@ C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\System.Numerics.V
 C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Administrator\Desktop\ServicePro\ServicePro\obj\Debug\ServicePro.csproj.CopyComplete
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\ServicePro\ServicePro\bin\Debug\Newtonsoft.Json.xml

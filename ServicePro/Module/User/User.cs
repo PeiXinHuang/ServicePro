@@ -8,9 +8,9 @@ namespace ServicePro.Module.User
 {
     class User
     {
-        public string eamil; //用email作为用户的ID
-        public string username;
+        
+        public string userName;
+        public string email;
         public string password;
-        public string sex;
     }
 }

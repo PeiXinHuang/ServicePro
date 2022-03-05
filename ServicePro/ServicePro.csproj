@@ -36,6 +36,9 @@
     <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.2.1.6\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -70,15 +73,20 @@
     <Compile Include="Module\AdminUser\AdminUserDbMgr.cs" />
     <Compile Include="Module\AdminUser\AdminUser.cs" />
     <Compile Include="Db\DbManager.cs" />
+    <Compile Include="Module\Poem\Poem.cs" />
+    <Compile Include="Module\Poem\PoemDbMgr.cs" />
+    <Compile Include="Module\Poem\PoemMgr.cs" />
     <Compile Include="Module\User\User.cs" />
-    <Compile Include="Net\AdminUserDb.cs" />
+    <Compile Include="Module\User\UserDbMgr.cs" />
     <Compile Include="Net\ByteArray.cs" />
     <Compile Include="Net\ClientState.cs" />
     <Compile Include="Net\EventHandler.cs" />
     <Compile Include="Net\LoginMsg.cs" />
-    <Compile Include="Net\LoginMsgHandle.cs" />
+    <Compile Include="Net\LoginMsgHandler.cs" />
     <Compile Include="Net\MsgBase.cs" />
     <Compile Include="Net\NetManager.cs" />
+    <Compile Include="Net\RegisterMsg.cs" />
+    <Compile Include="Net\RegisterMsgHandler.cs" />
     <Compile Include="Net\SysMsg.cs" />
     <Compile Include="Net\SysMsgHandler.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +97,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ServicePro.Base.Net
+namespace ServicePro.Net
 {
 	public class ByteArray
 	{
@@ -109,8 +109,6 @@ namespace ServicePro.Base.Net
 				Console.WriteLine("[ByteArray] ReadInt16 Fail " + ex.ToString());
 				return 0; 
             }
-			
-			
 		}
 
 		//读取Int32

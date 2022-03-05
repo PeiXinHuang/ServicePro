@@ -4,20 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base.Net
+namespace ServicePro.Net
 {
-	//注册
-	public class MsgRegister : MsgBase
-	{
-		public MsgRegister() { protoName = "MsgRegister"; }
-		//客户端发
-		public string id = "";
-		public string pw = "";
-		//服务端回（0-成功，1-失败）
-		public int result = 0;
-	}
-
-
 	//登陆
 	public class MsgLogin : MsgBase
 	{
@@ -45,5 +33,4 @@ namespace ServicePro.Base.Net
 		public string password;
 		public int result = 0;
     }
-
 }

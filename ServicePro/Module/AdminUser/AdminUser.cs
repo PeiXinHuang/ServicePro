@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.App.Module.AdminUser
+namespace ServicePro.Module.AdminUser
 {
     class AdminUser
     {

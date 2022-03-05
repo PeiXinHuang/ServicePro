@@ -1,33 +1,16 @@
-﻿using ServicePro.App.Db;
-using ServicePro.App.Module.AdminUser;
+﻿using ServicePro.Db;
+using ServicePro.Module.AdminUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Base.Net
+namespace ServicePro.Net
 {
 	public partial class MsgHandler
 	{
-		//注册协议处理
-
-		public static void MsgRegister(ClientState c, MsgBase msgBase)
-		{
-			MsgRegister msg = (MsgRegister)msgBase;
-			//注册
-			//if (DbManager.Register(msg.id, msg.pw))
-			//{
-			//	DbManager.CreatePlayer(msg.id);
-			//	msg.result = 0;
-			//}
-			//else
-			//{
-			//	msg.result = 1;
-			//}
-			NetManager.Send(c, msg);
-		}
-
+		
 
 		//登陆协议处理
 		public static void MsgLogin(ClientState c, MsgBase msgBase)
@@ -98,7 +81,6 @@ namespace ServicePro.Base.Net
 				Console.WriteLine("数据库中获取到数据" + msg.username + msg.password);
 				msg.result = 0;
 			}
-
 			NetManager.Send(c, msg);
         }
 	}

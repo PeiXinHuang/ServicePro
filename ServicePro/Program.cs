@@ -1,5 +1,6 @@
-﻿using ServicePro.Base.Db;
-using ServicePro.Base.Net;
+﻿using ServicePro.Db;
+using ServicePro.Net;
+using ServicePro.Module.Poem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,9 @@ namespace ServicePro
             bool result = DbManager.instance.InitDatabaseMgr();
             if(result)
             {
+                Console.WriteLine("数据库连接测试通过");
+                //PoemMgr.SetPoemToDb();
+                PoemMgr.GetPoemFromDb();
                 NetManager.StartLoop();
             }
         }

@@ -1,13 +1,12 @@
 ﻿using MySqlConnector;
-using ServicePro.App.Module.AdminUser;
-using ServicePro.Base.Db;
+using ServicePro.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.App.Db
+namespace ServicePro.Module.AdminUser
 {
     class AdminUserDbMgr:DbManager
     {
