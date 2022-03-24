@@ -16,7 +16,7 @@ namespace ServicePro.Net
             MsgDownload msg = (MsgDownload)msgBase;
             if(msg.downloadType == 0)
             {
-                msg.content = PoemMgr.GetPoemFromDb();
+                msg.content = PoemMgr.GetPoemJsonRangeFromDb();
                 msg.downloadType = 0;
                 msg.result = 0;
             }

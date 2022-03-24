@@ -160,7 +160,7 @@ namespace ServicePro.Module.Poem
             return maxId;
 
         }
-        public List<Poem> GetPoemsByAuthor(string _author)
+        public static List<Poem> GetPoemsByAuthor(string _author)
         {
             List<Poem> poems = new List<Poem>();
             try
