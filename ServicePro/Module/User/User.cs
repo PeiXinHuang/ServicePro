@@ -8,9 +8,9 @@ namespace ServicePro.Module.User
 {
     class User
     {
-        
-        public string userName;
-        public string email;
+        public string name;
+        public string mail;
         public string password;
     }
+
 }

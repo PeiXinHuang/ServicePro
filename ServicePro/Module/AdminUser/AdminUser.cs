@@ -8,8 +8,8 @@ namespace ServicePro.Module.AdminUser
 {
     class AdminUser
     {
-        public string username;
+        public string name;
         public string password;
-
+        public string mail;
     }
 }

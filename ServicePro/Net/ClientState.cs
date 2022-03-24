@@ -9,6 +9,6 @@ namespace ServicePro.Net
 		public ByteArray readBuff = new ByteArray();
 		public long lastPingTime = 0;
 		//玩家
-		//public Player player;
+		public string mail = "";
 	}
 }

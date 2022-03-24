@@ -10,7 +10,7 @@ namespace ServicePro.Module.Poem
 {
     class PoemDbMgr : DbManager
     {
-        public void InsertPoem(Poem poem)
+        public static void InsertPoem(Poem poem)
         {
             if (string.IsNullOrEmpty(poem.title) || string.IsNullOrEmpty(poem.content))
             {
@@ -69,13 +69,13 @@ namespace ServicePro.Module.Poem
             }
         }
 
-        public List<Poem> GetPoemsById(int beginId, int EndId)
+        public static List<Poem> GetPoemsByIdRange(int beginId, int EndId)
         {
             List<Poem> poems = new List<Poem>();
             try
             {
                 conn.Open();
-                string sql = string.Format("select * from poem where id > {0} and id < {1} ", beginId, EndId);
+                string sql = string.Format("select * from poem where id > {0} and id <= {1} ", beginId, EndId);
 
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -101,7 +101,41 @@ namespace ServicePro.Module.Poem
             return poems;
         }
 
-        public int GetPoemMaxId()
+        public static Poem GetPoemsById(int id)
+        {
+            List<Poem> poems = new List<Poem>();
+            try
+            {
+                conn.Open();
+                string sql = string.Format("select * from poem where id  = {0} ", id);
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string title = reader[1].ToString();
+                    string author = reader[2].ToString();
+                    string dynasty = reader[3].ToString();
+                    string content = reader[4].ToString();
+                    string types = reader[5].ToString();
+                    Poem poem = new Poem(title, author, dynasty, content, types);
+                    poems.Add(poem);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[PoemDbMgr] Get poem fail cause by " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            if (poems.Count == 0)
+                return poems[0];
+            return null;
+        }
+
+        public static int GetPoemMaxId()
         {
             int maxId = 0;
             try
@@ -110,7 +144,7 @@ namespace ServicePro.Module.Poem
                 string sql = "select max(id) from poem";
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader reader = command.ExecuteReader();
-                if(reader.Read())
+                if (reader.Read())
                 {
                     maxId = Convert.ToInt32(reader[0].ToString());
                 }
@@ -123,7 +157,39 @@ namespace ServicePro.Module.Poem
             {
                 conn.Close();
             }
-            return maxId; 
+            return maxId;
+
+        }
+        public List<Poem> GetPoemsByAuthor(string _author)
+        {
+            List<Poem> poems = new List<Poem>();
+            try
+            {
+                conn.Open();
+                string sql = string.Format("select * from poem where author  = '{0}' ", _author);
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string title = reader[1].ToString();
+                    string author = reader[2].ToString();
+                    string dynasty = reader[3].ToString();
+                    string content = reader[4].ToString();
+                    string types = reader[5].ToString();
+                    Poem poem = new Poem(title, author, dynasty, content, types);
+                    poems.Add(poem);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[PoemDbMgr] Get poem by author fail cause by " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return poems;
         }
     }
 }

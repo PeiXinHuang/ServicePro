@@ -31,7 +31,17 @@ namespace ServicePro.Module.Poem
         /// <summary>
         /// 诗词类型
         /// </summary>
-        public string types = ""; 
+        public string types = "";
+
+        /// <summary>
+        /// 诗词注释
+        /// </summary>
+        public string annotation = "";
+
+        /// <summary>
+        /// 诗词翻译
+        /// </summary>
+        public string translation = "";
 
         public Poem(string _title, string _author, string _dynasty, string _content, string _types)
         {

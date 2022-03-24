@@ -23,27 +23,25 @@ namespace ServicePro.Module.Poem
                 PoemsData poemsData = JsonConvert.DeserializeObject<PoemsData>(jsonTxt);
                 foreach (Poem poem in poemsData.poems)
                 {
-                    PoemDbMgr poemDbMgr = new PoemDbMgr();
-                    poemDbMgr.InsertPoem(poem);
+                    PoemDbMgr.InsertPoem(poem);
                 }
             }
         }
 
-        public static void GetPoemFromDb(int poemCount = 1000, int beginId = 0)
+        public static string GetPoemJsonRangeFromDb(int poemCount = 1000, int beginId = 0)
         {
-            PoemDbMgr poemDbMgr = new PoemDbMgr();
-            int poemMaxId = poemDbMgr.GetPoemMaxId();
+            int poemMaxId = PoemDbMgr.GetPoemMaxId();
             List<Poem> poems = new List<Poem>();
             while (beginId < poemMaxId && poems.Count < poemCount)
             {
-                List<Poem> poemTemps = poemDbMgr.GetPoemsById(beginId, beginId + 99);
+                List<Poem> poemTemps = PoemDbMgr.GetPoemsByIdRange(beginId, beginId + 99);
                 beginId += 99;
                 poems.AddRange(poemTemps);
             }
            
             if(poems.Count == 0)
             {
-                return;
+                return "";
             }
             
             PoemsData poemsData = new PoemsData();
@@ -51,10 +49,22 @@ namespace ServicePro.Module.Poem
             poemsData.count = poems.Count;
             string poemJsonStr = JsonConvert.SerializeObject(poemsData, Formatting.Indented);
 
-            Console.WriteLine(poemJsonStr);
+            return poemJsonStr;
+        }
 
-            string path = poemToSendFolderPath + "/poem0.json";
-            File.WriteAllText(path, poemJsonStr);
+        public static string GetPoemJsonByAuthor(string author)
+        {
+            List<Poem> poems = PoemDbMgr.GetPoemsByAuthor(author);
+            if (poems.Count == 0)
+            {
+                return "";
+            }
+            PoemsData poemsData = new PoemsData();
+            poemsData.poems = poems.ToArray();
+            poemsData.count = poems.Count;
+            string poemJsonStr = JsonConvert.SerializeObject(poemsData, Formatting.Indented);
+
+            return poemJsonStr;
         }
     }
 
