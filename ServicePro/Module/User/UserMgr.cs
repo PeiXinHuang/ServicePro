@@ -10,8 +10,7 @@ namespace ServicePro.Module.User
     class UserMgr
     {
         public static string GetAllUsersFromDb()
-        {
-          
+        {    
             List<User> users = new List<User>();
             users = UserDbMgr.GetAllUsers();
             if (users.Count == 0)

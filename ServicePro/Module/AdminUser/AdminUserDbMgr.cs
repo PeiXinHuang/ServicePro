@@ -158,7 +158,34 @@ namespace ServicePro.Module.AdminUser
 
             return updateResult;
         }
+
+        public static List<AdminUser> GetAllAdminUsers()
+        {
+            List<AdminUser> adminUsers = new List<AdminUser>();
+            try
+            {
+                conn.Open();
+                string sql = string.Format("select * from AdminUser");
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    AdminUser adminUser = new AdminUser();
+                    adminUser.mail = reader[0].ToString();
+                    adminUser.name = reader[1].ToString();
+                    adminUser.password = reader[2].ToString();
+                    adminUsers.Add(adminUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[AdminbUserDbMgr] Get all AdminUser fail cause by " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return adminUsers;
+        }
     }
-
-
 }

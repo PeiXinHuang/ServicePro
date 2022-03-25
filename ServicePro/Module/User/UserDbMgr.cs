@@ -180,7 +180,7 @@ namespace ServicePro.Module.User
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[AdminbUserDbMgr] Get AdminUser fail cause by " + ex.ToString());
+                Console.WriteLine("[UserDbMgr] Get all users fail cause by " + ex.ToString());
             }
             finally
             {

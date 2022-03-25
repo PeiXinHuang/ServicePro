@@ -73,7 +73,9 @@
     <Compile Include="Module\AdminUser\AdminUserDbMgr.cs" />
     <Compile Include="Module\AdminUser\AdminUser.cs" />
     <Compile Include="Db\DbManager.cs" />
-    <Compile Include="Module\Poem\FavoriteDbMgr.cs" />
+    <Compile Include="Module\AdminUser\AdminUserMgr.cs" />
+    <Compile Include="Module\Favorite\Favorite.cs" />
+    <Compile Include="Module\Favorite\FavoriteDbMgr.cs" />
     <Compile Include="Module\Poem\Poem.cs" />
     <Compile Include="Module\Poem\PoemDbMgr.cs" />
     <Compile Include="Module\Poem\PoemMgr.cs" />
@@ -90,6 +92,8 @@
     <Compile Include="Net\EventHandler.cs" />
     <Compile Include="Net\PoemMsg.cs" />
     <Compile Include="Net\PoemMsgHandler.cs" />
+    <Compile Include="Net\UploadPoemMsg.cs" />
+    <Compile Include="Net\UploadPoemMsgHandler.cs" />
     <Compile Include="Net\UserMsg.cs" />
     <Compile Include="Net\LoginMsgHandler.cs" />
     <Compile Include="Net\MsgBase.cs" />
@@ -98,7 +102,6 @@
     <Compile Include="Net\SysMsgHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\JsonUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

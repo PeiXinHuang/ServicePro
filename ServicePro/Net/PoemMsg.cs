@@ -11,6 +11,7 @@ namespace ServicePro.Net
         public MsgFavorite() { protoName = "MsgFavorite"; }
         public string userMail = "";
         public int poemId = 0;
+        public string poemTitle = "";
         public int isFavorite = 0;//1 代表收藏，0代表取消收藏，2代表查询收藏
         public int result = 0;
     }

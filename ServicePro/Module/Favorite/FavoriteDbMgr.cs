@@ -6,12 +6,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServicePro.Module.Poem
+namespace ServicePro.Module.Favorite
 {
     class FavoriteDbMgr : DbManager
     {
 
-        public static void SetFavorite(int poemId, string userMail, int isFavorite)
+        public static List<Favorite> GetAllFavoriteByUserMail(string userMail)
+        {
+            List<Favorite> favorites = new List<Favorite>();
+            
+            try
+            {
+                conn.Open();
+                string sql = string.Format("select * from favorite where userMail = '{0}'",userMail);
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                while(reader.Read())
+                {
+                    Favorite favorite = new Favorite();
+
+                    if (reader[3].ToString().Equals("1"))
+                    {
+                        favorite.poemId = int.Parse(reader[0].ToString());
+                        favorite.userMail = reader[1].ToString();
+                        favorite.poemTitle = reader[2].ToString();
+                        favorite.isFavorite = true;
+                        favorites.Add(favorite);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[FavoriteDbMgr] Get Favorite by mail faild cause by " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+           
+            return favorites;
+        }
+
+        public static void SetFavorite(int poemId, string userMail, string poemTitle, int isFavorite)
         {
             if(IsContaionFavorite(poemId, userMail))
             {
@@ -19,7 +56,7 @@ namespace ServicePro.Module.Poem
             }
             else
             {
-                InsertFavorite(poemId, userMail, isFavorite);
+                InsertFavorite(poemId, userMail, poemTitle, isFavorite);
             }
         }
 
@@ -49,15 +86,15 @@ namespace ServicePro.Module.Poem
             }
         }
 
-        public static void InsertFavorite(int poemId, string userMail, int isFavorite)
+        public static void InsertFavorite(int poemId, string userMail, string poemTitle, int isFavorite)
         {
             try
             {
                 conn.Open();
 
-                string sql = string.Format("insert into favorite(poemId, userMail, isFavorite) " +
-                    "values('{0}','{1}','{2}')",
-                    poemId, userMail, isFavorite.ToString());
+                string sql = string.Format("insert into favorite(poemId, userMail, poemTitle, isFavorite) " +
+                    "values('{0}','{1}','{2}','{3}')",
+                    poemId, userMail, poemTitle, isFavorite.ToString());
                 Console.WriteLine(sql);
                 //执行插入语句
                 MySqlCommand command = conn.CreateCommand();
@@ -126,7 +163,7 @@ namespace ServicePro.Module.Poem
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[FavoriteDbMgr] Charge is exit or not faile cause by " + ex.ToString());
+                Console.WriteLine("[FavoriteDbMgr] Charge is exit or not fail cause by " + ex.ToString());
             }
             finally
             {

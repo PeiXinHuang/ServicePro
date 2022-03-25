@@ -11,8 +11,6 @@ namespace ServicePro.Module.UserBehavior
     {
         public static string GetAllUsersRigisterFromDb()
         {
-
-
             List<UserBehavior> userBehaviors = new List<UserBehavior>();
             userBehaviors = UserBehaviorDbMgr.GetAllUserRigisterBehavior();
             if (userBehaviors.Count == 0)
@@ -30,7 +28,24 @@ namespace ServicePro.Module.UserBehavior
 
         }
 
+        public static string GetUserBehaviorsFromDb(string userMail)
+        {
+            List<UserBehavior> userBehaviors = new List<UserBehavior>();
+            userBehaviors = UserBehaviorDbMgr.GetUserBehaviorByMail(userMail);
+            if (userBehaviors.Count == 0)
+            {
+                Console.WriteLine("[UserBehaviorDbMgr]获取用户行为信息失败");
+                return "";
+            }
+            UserBehaviorData userBehaviorData = new UserBehaviorData();
+            userBehaviorData.behaviors = userBehaviors.ToArray();
+            userBehaviorData.count = userBehaviors.Count;
+            string poemJsonStr = JsonConvert.SerializeObject(userBehaviorData, Formatting.Indented);
+            return poemJsonStr;
+        }
     }
+
+
     class UserBehaviorData
     {
         public UserBehavior[] behaviors;

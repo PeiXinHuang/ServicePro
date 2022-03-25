@@ -1,4 +1,5 @@
-﻿using ServicePro.Module.Poem;
+﻿using ServicePro.Module.Favorite;
+using ServicePro.Module.Poem;
 using ServicePro.Module.UserBehavior;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace ServicePro.Net
             }
             else //收藏或者取消收藏诗词
             {
-                FavoriteDbMgr.SetFavorite(msgFavorite.poemId, msgFavorite.userMail, msgFavorite.isFavorite);
+                FavoriteDbMgr.SetFavorite(msgFavorite.poemId, msgFavorite.userMail, msgFavorite.poemTitle, msgFavorite.isFavorite);
                 Poem poem = PoemDbMgr.GetPoemsById(msgFavorite.poemId);
                 
                 string poemTitle = "";

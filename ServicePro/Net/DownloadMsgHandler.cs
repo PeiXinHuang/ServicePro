@@ -1,4 +1,5 @@
-﻿using ServicePro.Module.Poem;
+﻿using ServicePro.Module.AdminUser;
+using ServicePro.Module.Poem;
 using ServicePro.Module.User;
 using ServicePro.Module.UserBehavior;
 using System;
@@ -11,27 +12,79 @@ namespace ServicePro.Net
 {
     public partial class MsgHandler
     {
-        public static void MsgDownload(ClientState c, MsgBase msgBase)
+        public static void MsgDownloadUserList(ClientState c, MsgBase msgBase)
         {
-            MsgDownload msg = (MsgDownload)msgBase;
-            if(msg.downloadType == 0)
-            {
-                msg.content = PoemMgr.GetPoemJsonRangeFromDb();
-                msg.downloadType = 0;
-                msg.result = 0;
-            }
-            else if(msg.downloadType == 1)
-            {
-                msg.content = UserMgr.GetAllUsersFromDb();
-                msg.downloadType = 1;
-                msg.result = 0;
-            }
-            else if (msg.downloadType == 2)
-            {
-                msg.content = UserBehaviorMgr.GetAllUsersRigisterFromDb();
-                msg.downloadType = 2;
-                msg.result = 0;
-            }
+            MsgDownloadUserList msg = (MsgDownloadUserList)msgBase;
+            msg.content = UserMgr.GetAllUsersFromDb();
+            msg.result = 0;
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadAdminUserList(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadAdminUserList msg = (MsgDownloadAdminUserList)msgBase;
+            msg.content = AdminUserMgr.GetAllAdminUsersFromDb();
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadUserBehaivor(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadUserBehaivor msg = (MsgDownloadUserBehaivor)msgBase;
+            msg.content = UserBehaviorMgr.GetUserBehaviorsFromDb(msg.userMail);
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemAuthor(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemAuthor msg = (MsgDownloadPoemAuthor)msgBase;
+            msg.content = PoemMgr.GetPoemJsonByAuthor(msg.author);
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemDynasty(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemDynasty msg = (MsgDownloadPoemDynasty)msgBase;
+            msg.content = PoemMgr.GetPoemJsonByDynasty(msg.dynasty);
+            NetManager.Send(c, msg);
+        }
+        public static void MsgDownloadPoemBook(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemBook msg = (MsgDownloadPoemBook)msgBase;
+            msg.content = PoemMgr.GetPoemJsonByBook(msg.book);
+            NetManager.Send(c, msg);
+        }
+        public static void MsgDownloadPoemType(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemType msg = (MsgDownloadPoemType)msgBase;
+            msg.content = PoemMgr.GetPoemJsonByType(msg.type);
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemAuthorList(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemAuthorList msg = (MsgDownloadPoemAuthorList)msgBase;
+            msg.content = PoemMgr.GetPoemAuthorListJson();
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemDynastyList(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemDynastyList msg = (MsgDownloadPoemDynastyList)msgBase;
+            msg.content = PoemMgr.GetPoemDynastyListJson();
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemBookList(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemBookList msg = (MsgDownloadPoemBookList)msgBase;
+            msg.content = PoemMgr.GetPoemBookListJson();
+            NetManager.Send(c, msg);
+        }
+
+        public static void MsgDownloadPoemTypeList(ClientState c, MsgBase msgBase)
+        {
+            MsgDownloadPoemTypeList msg = (MsgDownloadPoemTypeList)msgBase;
+            msg.content = PoemMgr.GetPoemTypeListJson();
             NetManager.Send(c, msg);
         }
     }
