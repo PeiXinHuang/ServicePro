@@ -8,6 +8,8 @@ namespace ServicePro.Module.Poem
 {
     class Poem
     {
+        public int id = 0;
+
         /// <summary>
         /// 诗词名
         /// </summary>

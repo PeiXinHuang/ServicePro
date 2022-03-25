@@ -15,6 +15,7 @@ namespace ServicePro.Net
         {
             MsgUploadPoem msg = (MsgUploadPoem)msgBase;
             bool result = PoemMgr.SetPoemJosnStrToDb(msg.poemContent);
+            msg.poemContent = "";
             msg.result = result ? 0 : 1;
             NetManager.Send(c, msg);
         }

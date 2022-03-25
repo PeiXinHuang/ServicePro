@@ -34,7 +34,7 @@ namespace ServicePro.Module.UserBehavior
             userBehaviors = UserBehaviorDbMgr.GetUserBehaviorByMail(userMail);
             if (userBehaviors.Count == 0)
             {
-                Console.WriteLine("[UserBehaviorDbMgr]获取用户行为信息失败");
+                Console.WriteLine("[UserBehaviorMgr]获取用户行为信息失败");
                 return "";
             }
             UserBehaviorData userBehaviorData = new UserBehaviorData();

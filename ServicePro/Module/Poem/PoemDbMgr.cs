@@ -53,7 +53,7 @@ namespace ServicePro.Module.Poem
                 string sql = string.Format("insert into poem(title, author, dynasty, content, type, book,translation, annotation,appreciation) " + 
                     "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
                     poem.title, poem.author, poem.dynasty, poem.content, poem.type,poem.book, poem.translation, poem.annotation,poem.appreciation);
-                Console.WriteLine(sql);
+
                 //执行插入语句
                 MySqlCommand command = conn.CreateCommand();
                 command.CommandText = sql;
@@ -196,6 +196,7 @@ namespace ServicePro.Module.Poem
                     string annotation = reader[8].ToString();
                     string appreciation = reader[9].ToString();
                     Poem poem = new Poem(title, author, dynasty, content, type, book, annotation, translation, appreciation);
+                    poem.id = int.Parse(reader[0].ToString());
                     poems.Add(poem);
                 }
             }
@@ -232,6 +233,7 @@ namespace ServicePro.Module.Poem
                     string annotation = reader[8].ToString();
                     string appreciation = reader[9].ToString();
                     Poem poem = new Poem(title, author, dynasty, content, type, book, annotation, translation, appreciation);
+                    poem.id = int.Parse(reader[0].ToString());
                     poems.Add(poem);
                 }
             }
