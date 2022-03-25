@@ -41,7 +41,8 @@ namespace ServicePro.Module.Poem
 
             if (hasContainThisPoem)
             {
-                Console.WriteLine("[PoemDbMgr]" + poem.title + " has exit in poem db, pass");
+                UpdatePoem(poem);
+               // Console.WriteLine("[PoemDbMgr]" + poem.title + " has exit in poem db, pass");
                 return;
             }
 
@@ -67,6 +68,11 @@ namespace ServicePro.Module.Poem
             {
                 conn.Close();
             }
+        }
+
+        public static void UpdatePoem(Poem poem)
+        {
+
         }
 
         public static List<Poem> GetPoemsByIdRange(int beginId, int EndId)
