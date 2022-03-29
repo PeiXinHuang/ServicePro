@@ -110,4 +110,11 @@ namespace ServicePro.Net
         public int result = 0;
     }
 
+    class MsgDownloadPkgVersion : MsgBase
+    {
+        public MsgDownloadPkgVersion() { protoName = "MsgDownloadPkgVersion"; }
+        public string md5; //用于校验文件下载是否成功
+        //服务端回（0-成功，1-失败）
+        public int result = 0;
+    }
 }

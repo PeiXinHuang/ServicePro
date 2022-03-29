@@ -76,6 +76,7 @@
     <Compile Include="Module\AdminUser\AdminUserMgr.cs" />
     <Compile Include="Module\Favorite\Favorite.cs" />
     <Compile Include="Module\Favorite\FavoriteDbMgr.cs" />
+    <Compile Include="Module\Md5\MgFiveMgr.cs" />
     <Compile Include="Module\Poem\Poem.cs" />
     <Compile Include="Module\Poem\PoemDbMgr.cs" />
     <Compile Include="Module\Poem\PoemMgr.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Net\DownloadMsg.cs" />
     <Compile Include="Net\DownloadMsgHandler.cs" />
     <Compile Include="Net\EventHandler.cs" />
+    <Compile Include="Net\PkgManager.cs" />
     <Compile Include="Net\PoemMsg.cs" />
     <Compile Include="Net\PoemMsgHandler.cs" />
     <Compile Include="Net\UploadPoemMsg.cs" />

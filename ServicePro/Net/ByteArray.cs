@@ -4,7 +4,7 @@ namespace ServicePro.Net
 	public class ByteArray
 	{
 		//默认大小
-		const int DEFAULT_SIZE = 1024 * 1024;
+		const int DEFAULT_SIZE = 1024;
 		//初始大小
 		int initSize = 0;
 		//缓冲区

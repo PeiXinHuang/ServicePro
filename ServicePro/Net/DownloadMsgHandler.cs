@@ -1,4 +1,5 @@
 ﻿using ServicePro.Module.AdminUser;
+using ServicePro.Module.Md5;
 using ServicePro.Module.Poem;
 using ServicePro.Module.User;
 using ServicePro.Module.UserBehavior;
@@ -60,31 +61,39 @@ namespace ServicePro.Net
             NetManager.Send(c, msg);
         }
 
-        public static void MsgDownloadPoemAuthorList(ClientState c, MsgBase msgBase)
-        {
-            MsgDownloadPoemAuthorList msg = (MsgDownloadPoemAuthorList)msgBase;
-            msg.content = PoemMgr.GetPoemAuthorListJson();
-            NetManager.Send(c, msg);
-        }
+        //public static void MsgDownloadPoemAuthorList(ClientState c, MsgBase msgBase)
+        //{
+        //    MsgDownloadPoemAuthorList msg = (MsgDownloadPoemAuthorList)msgBase;
+        //    msg.content = PoemMgr.GetPoemAuthorListJson();
+        //    NetManager.Send(c, msg);
+        //}
 
-        public static void MsgDownloadPoemDynastyList(ClientState c, MsgBase msgBase)
-        {
-            MsgDownloadPoemDynastyList msg = (MsgDownloadPoemDynastyList)msgBase;
-            msg.content = PoemMgr.GetPoemDynastyListJson();
-            NetManager.Send(c, msg);
-        }
+        //public static void MsgDownloadPoemDynastyList(ClientState c, MsgBase msgBase)
+        //{
+        //    MsgDownloadPoemDynastyList msg = (MsgDownloadPoemDynastyList)msgBase;
+        //    msg.content = PoemMgr.GetPoemDynastyListJson();
+        //    NetManager.Send(c, msg);
+        //}
 
-        public static void MsgDownloadPoemBookList(ClientState c, MsgBase msgBase)
-        {
-            MsgDownloadPoemBookList msg = (MsgDownloadPoemBookList)msgBase;
-            msg.content = PoemMgr.GetPoemBookListJson();
-            NetManager.Send(c, msg);
-        }
+        //public static void MsgDownloadPoemBookList(ClientState c, MsgBase msgBase)
+        //{
+        //    MsgDownloadPoemBookList msg = (MsgDownloadPoemBookList)msgBase;
+        //    msg.content = PoemMgr.GetPoemBookListJson();
+        //    NetManager.Send(c, msg);
+        //}
 
-        public static void MsgDownloadPoemTypeList(ClientState c, MsgBase msgBase)
+        //public static void MsgDownloadPoemTypeList(ClientState c, MsgBase msgBase)
+        //{
+        //    MsgDownloadPoemTypeList msg = (MsgDownloadPoemTypeList)msgBase;
+        //    msg.content = PoemMgr.GetPoemTypeListJson();
+        //    NetManager.Send(c, msg);
+        //}
+
+        public static void MsgDownloadPkgVersion(ClientState c, MsgBase msgBase)
         {
-            MsgDownloadPoemTypeList msg = (MsgDownloadPoemTypeList)msgBase;
-            msg.content = PoemMgr.GetPoemTypeListJson();
+            MsgDownloadPkgVersion msg = (MsgDownloadPkgVersion)msgBase;
+            msg.result = 0;
+            msg.md5 = MdFiveMgr.GetMD5HashFromFile(PkgManager.globalVersionFilePath);
             NetManager.Send(c, msg);
         }
     }

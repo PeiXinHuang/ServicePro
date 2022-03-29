@@ -19,7 +19,9 @@ namespace ServicePro
             if(result)
             {
                 Console.WriteLine("数据库连接测试通过");
+                PkgManager.StartLoop();
                 NetManager.StartLoop();
+
             }
         }
     }
